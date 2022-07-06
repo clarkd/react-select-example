@@ -1,0 +1,15 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #282c34; 
+}
+
+.App {
+  padding: 100px; 
+  width: 450px; 
+}
+
+h1, p, pre {
+  color: white;
+}
