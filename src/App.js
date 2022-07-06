@@ -56,7 +56,7 @@ function Autocomplete({ config }) {
   };
 
   const Component = config.creatable ? AsyncCreatableSelect : AsyncSelect;
-  return <Component loadOptions={promiseOptions} cacheOptions defaultOptions filterOption={createFilter()}  />;
+  return <Component loadOptions={promiseOptions} cacheOptions defaultOptions filterOption={createFilter()} {...config} />;
 }
 
 function App() {
@@ -70,10 +70,11 @@ function App() {
       <Autocomplete config={spec1} />
       <h1>Spec 2</h1>
       <p>Example for remote list, non-creatable</p>
+      <p>With custom loading message</p>
       <pre>
         {JSON.stringify(spec2, null, '    ')}
       </pre>
-      <Autocomplete config={spec2} />
+      <Autocomplete config={{...spec2, loadingMessage: () => 'Loading metrics...'}} />
       <h1>Spec 3</h1>
       <p>Example for cloudwatch metrics, creatable to support new metric names</p>
       <pre>
